@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useLogin } from "../hooks/useLogin";
+
+import {toast} from 'sonner';
 
 
 
 export const LoginPage = () => {
 
-  const{ email, password, handleEmailChange, handlePasswordChange, handleLogin } = useLogin();
+  const navigate = useNavigate();
+
+  const{ email, password, handleEmailChange, handlePasswordChange, handleLogin, loading } = useLogin();
 
   return (
      <div className="min-h-screen flex items-center justify-center bg-gray-100"> {/* color de fondo y layout */}
@@ -46,11 +51,12 @@ export const LoginPage = () => {
         </div>
 
         <button className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-        onClick={handleLogin}>
+        onClick={handleLogin}
+        disabled={loading}>
           Iniciar Sesion
         </button>
 
-        <p className="text-center text-sm text-blue-600 cursor-pointer hover:underline">
+        <p onClick={()=> navigate("/register")} className="text-center text-sm text-blue-600 cursor-pointer hover:underline">
           Crear Cuenta
         </p>
       </div>

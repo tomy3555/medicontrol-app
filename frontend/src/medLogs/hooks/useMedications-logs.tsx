@@ -34,7 +34,6 @@ export const useMedicationLogs = () => {
 
     setLogs(normalizedLogs);
 
-    console.log('Fetched logs: ', normalizedLogs)
   };
 
   useEffect(() => {
@@ -53,9 +52,12 @@ export const useMedicationLogs = () => {
       logDate: date,
     });
 
+    
+
     const normalized = normalizeLog(newLog);
     setLogs(prev => [...prev, normalized]);
     return normalized;
+    
   };
 
   const unmarkAsTaken = async (scheduleId: number, date: string) => {

@@ -49,7 +49,7 @@ http://localhost:3000/api
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Dashboard
 ![Dashboard](./screenshots/dashboard.jpeg)

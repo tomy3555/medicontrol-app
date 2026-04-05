@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# MediControl
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MediControl es una aplicación web fullstack diseñada para la gestión de medicamentos, horarios y métricas de salud.
 
-Currently, two official plugins are available:
+Permite a los usuarios organizar la toma de medicación, hacer seguimiento del cumplimiento diario y registrar métricas relevantes como presión arterial o glucosa.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- Autenticación de usuarios mediante JWT
+- Gestión de medicamentos
+- Planificación semanal de tomas
+- Registro de tomas realizadas (medication logs)
+- Registro de métricas de salud
+- Dashboard con seguimiento diario y próxima dosis
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Stack Tecnológico
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Frontend
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React
+- TypeScript
+- TailwindCSS
+- shadcn/ui
+- Axios
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Backend
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- NestJS
+- TypeORM
+- MySQL
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Otros
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Autenticación con JWT
+- API REST
+- Swagger para documentación de la API
+
+---
+
+## Documentación de la API
+
+La API cuenta con documentación interactiva mediante Swagger, disponible al ejecutar el backend en:
+
+http://localhost:3000/api
+
+---
+
+## Notas
+
+- El proyecto está estructurado siguiendo buenas prácticas de separación entre frontend y backend.
+- Se priorizó claridad en la arquitectura y mantenibilidad del código.
+- Dentro de las carpetas frontend y backend hay un README.md que explica como levantar la aplicación.
+
+---
+
+## Autor
+
+Tomas Martinez

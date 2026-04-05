@@ -52,16 +52,16 @@ http://localhost:3000/api
 ## 📸 Screenshots
 
 ### Dashboard
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/dashboard.jpeg)
 
 ### Medicaciones
-![Medicaciones](./screenshots/medications.png)
+![Medicaciones](./screenshots/medications.jpeg)
 
 ### Pillbox
-![Pillbox](./screenshots/pillbox.png)
+![Pillbox](./screenshots/pillbox.jpeg)
 
 ### Health Metrics
-![Health Metrics](./screenshots/healthmetrics.png)
+![Health Metrics](./screenshots/healthmetrics.jpeg)
 
 ---
 

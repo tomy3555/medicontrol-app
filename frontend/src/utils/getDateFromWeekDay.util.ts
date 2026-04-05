@@ -15,7 +15,9 @@ export const getDateFromWeekDay = (day: WeekDay): string => {
   const today = new Date();
   const target = dayMap[day];
 
-  const diff = target - today.getDay();
+  const currentDay = today.getDay() === 0 ? 7 : today.getDay(); 
+
+  const diff = target - currentDay;
 
   const date = new Date(today);
   date.setDate(today.getDate() + diff);

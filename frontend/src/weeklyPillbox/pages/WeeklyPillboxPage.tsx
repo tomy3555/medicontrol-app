@@ -45,7 +45,6 @@ export default function WeeklyPillboxPage() {
   const { getDayProgress } = useProgress({ logs });
   const { total, taken } = getDayProgress(daySchedules, selectedDateString);
 
-  console.log("PAGE schedules:", schedules);
   return (
     <DashboardLayout>
       <div className="max-w-6xl mx-auto space-y-6">

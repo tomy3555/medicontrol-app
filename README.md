@@ -61,7 +61,7 @@ http://localhost:3000/api
 ![Pillbox](./screenshots/pillbox.jpeg)
 
 ### Health Metrics
-![Health Metrics](./screenshots/healthmetrics.jpeg)
+![Health Metrics](./screenshots/health-metrics.jpeg)
 
 ---
 

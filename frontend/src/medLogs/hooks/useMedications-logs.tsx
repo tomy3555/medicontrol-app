@@ -31,7 +31,10 @@ export const useMedicationLogs = () => {
       // últimos 30 días
       .filter(log => isWithinLastDays(log.logDate, 30));
 
+
     setLogs(normalizedLogs);
+
+    console.log('Fetched logs: ', normalizedLogs)
   };
 
   useEffect(() => {

@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 import type { Schedule } from "@/schedule/interfaces/schedules.interface";
-import type { Medication } from "@/medication/interfaces/medication.interface";
 import type { MedicationLog } from "@/medLogs/interfaces/medicationLog.interface";
 
 import { useTodayMedications } from "../hooks/useTodayMedications";
@@ -11,14 +10,12 @@ import { statusConfig } from "../helpers/statusConfig.util";
 
 interface Props {
   schedules: Schedule[];
-  medications: Medication[];
   logs: MedicationLog[];
 }
 
-export function TodayMedications({ schedules, medications, logs }: Props) {
+export function TodayMedications({ schedules, logs }: Props) {
   const { todayMeds } = useTodayMedications({
     schedules,
-    medications,
     logs,
   });
 

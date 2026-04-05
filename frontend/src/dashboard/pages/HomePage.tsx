@@ -5,7 +5,6 @@ import { StatsCards } from "../components/StatsCards";
 import { TodayMedications } from "../components/TodayMedication";
 import  { DashboardLayout } from "../../shared/DashboardLayout";
 import { useMedicationLogs } from "@/medLogs/hooks/useMedications-logs";
-import { useMedications } from "@/medication/hooks/useMedications";
 import { useHealthMetrics } from "@/healthMetrics/hooks/useHealthMetrics";
 
 const Index = () => {
@@ -18,7 +17,6 @@ const Index = () => {
 
   const { schedules } = useSchedules();
   const { logs } = useMedicationLogs();
-  const { medications } = useMedications();
   const { entries } = useHealthMetrics();
 
   return (
@@ -38,7 +36,7 @@ const Index = () => {
         {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
-            <TodayMedications schedules={schedules} medications={medications} logs={logs}/>
+            <TodayMedications schedules={schedules} logs={logs}/>
           </div>
           <div className="space-y-6">
             <HealthMetrics metrics={entries}/>

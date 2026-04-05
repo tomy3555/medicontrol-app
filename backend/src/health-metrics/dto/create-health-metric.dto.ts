@@ -1,7 +1,6 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsNumber, IsOptional, IsPositive, IsString, Validate } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsNumber, IsOptional, IsPositive, IsString, Validate, ValidateIf } from 'class-validator';
 import { MetricType } from 'src/types/metrics.enum';
-import { IsValue2Required } from '../decorators/value2-required.decorator';
 
 export class CreateHealthMetricDto {
 
@@ -25,8 +24,9 @@ export class CreateHealthMetricDto {
     example: 80,
     description: 'Secondary value (e.g., diastolic pressure in blood pressure)'
   })
+  @ValidateIf((o) => o.type === 'blood_pressure')
+  @IsNotEmpty() 
   @IsNumber()
-  @Validate(IsValue2Required)
   @IsPositive()
   value2?: number;
 

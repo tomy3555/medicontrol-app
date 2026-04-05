@@ -109,7 +109,7 @@ export const AddHealthMetricDialog = ({
                   onChange={(e) =>
                     setFormData({
                       ...formData,
-                      value2: e.target.value || undefined, // 👈 importante
+                      value2: e.target.value || undefined, 
                     })
                   }
                 />

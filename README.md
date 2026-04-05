@@ -49,6 +49,22 @@ http://localhost:3000/api
 
 ---
 
+## 📸 Screenshots
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.jpeg)
+
+### Medicaciones
+![Medicaciones](./screenshots/medications.jpeg)
+
+### Pillbox
+![Pillbox](./screenshots/pillbox.jpeg)
+
+### Health Metrics
+![Health Metrics](./screenshots/healthmetrics.jpeg)
+
+---
+
 ## Notas
 
 - El proyecto está estructurado siguiendo buenas prácticas de separación entre frontend y backend.

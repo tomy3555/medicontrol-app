@@ -63,7 +63,6 @@ export const useMedicationLogs = () => {
 
     const normalized = normalizeLog(newLog);
     setLogs(prev => [...prev, normalized]);
-    console.log('Log: ', normalized)
     return normalized;
     
   };

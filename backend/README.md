@@ -44,7 +44,7 @@ http://localhost:3000/api/seed
 2.
 
 - email: user@test.com
-- password: User123
+- password: Password123
 
 ## Documentación de la API
 

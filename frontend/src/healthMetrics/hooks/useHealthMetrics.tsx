@@ -81,43 +81,50 @@ export const useHealthMetrics = () => {
 };
 
   const handleAdd = async () => {
-  try {
-    if (!formData.value) {
-      toast.error("Please enter a value");
-      return;
+    try {
+      if (!formData.value) {
+        toast.error("Please enter a value");
+        return;
+      }
+
+      const value = Number(formData.value);
+
+      if (value <= 0) {
+        toast.error("Value must be greater than 0");
+        return;
+      }
+
+      const payload: any = {
+        type: formData.type,
+        value,
+        unit: getUnit(formData.type),
+        date: formData.date,
+        time: formData.time,
+        notes: formData.notes,
+      };
+
+      // solo para blood pressure
+      if (formData.type === "blood_pressure") {
+        const value2 = Number(formData.value2);
+
+        if (!formData.value2 || value2 <= 0) {
+          toast.error("Second value must be greater than 0");
+          return;
+        }
+
+        payload.value2 = value2;
+      }
+
+      await createHealthMetric(payload);
+
+      toast.success("Metric added");
+
+      setIsAddOpen(false);
+      fetchMetrics();
+    } catch (error) {
+      toast.error("Error creating metric");
     }
-
-    const value = Number(formData.value);
-    const value2 = formData.value2 ? Number(formData.value2) : undefined;
-
-    if (value <= 0) {
-      toast.error("Value must be greater than 0");
-      return;
-    }
-
-    if (value2 !== undefined && value2 <= 0) {
-      toast.error("Second value must be greater than 0");
-      return;
-    }
-
-    await createHealthMetric({
-      type: formData.type,
-      value,
-      value2,
-      unit: getUnit(formData.type),
-      date: formData.date,
-      time: formData.time,
-      notes: formData.notes,
-    });
-
-    toast.success("Metric added");
-
-    setIsAddOpen(false);
-    fetchMetrics(); 
-  } catch (error) {
-    toast.error("Error creating metric");
-  }
-};
+  };
 
 
 

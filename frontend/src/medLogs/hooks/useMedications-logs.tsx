@@ -5,7 +5,6 @@ import type { Schedule } from "@/schedule/interfaces/schedules.interface";
 import { createMedicationLog, deleteMedicationLog, getMedicationLogs } from "@/medLogs/services/medication-logs.service";
 
 import { formatLogDate } from "@/utils/fromatLogDate.util";
-import { isWithinLastDays } from "../helpers/isWithinLastDays.util";
 import { isSameLog } from "../helpers/logUtil.util";
 
 export const useMedicationLogs = () => {
@@ -29,7 +28,15 @@ export const useMedicationLogs = () => {
         arr.findIndex(l => l.scheduleId === log.scheduleId && l.logDate === log.logDate) === i
       )
       // últimos 30 días
-      .filter(log => isWithinLastDays(log.logDate, 30));
+      .filter(log => {
+      const today = new Date();
+      const logDate = new Date(log.logDate);
+
+      const diff = (today.getTime() - logDate.getTime()) / (1000 * 60 * 60 * 24);
+
+      return diff <= 30; // permite futuro también
+    });
+
 
 
     setLogs(normalizedLogs);
@@ -56,6 +63,7 @@ export const useMedicationLogs = () => {
 
     const normalized = normalizeLog(newLog);
     setLogs(prev => [...prev, normalized]);
+    console.log('Log: ', normalized)
     return normalized;
     
   };
